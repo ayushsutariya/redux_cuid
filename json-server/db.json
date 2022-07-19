@@ -1,5 +1,13 @@
 {
-  "medicines": [],
+  "medicines": [
+    {
+      "id": 971,
+      "name": "Demo11",
+      "price": "495",
+      "quantity": "314",
+      "expiry": "2023"
+    }
+  ],
   "doctors": [
     {
       "id": 5,
