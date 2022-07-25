@@ -1,7 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./Action/Counter.Action";
 import Medicine from "./Container/Medicines/Medicines";
+import Promise_example from "./Container/Promise_Example/Promise_example";
 import Counter_Reducer from "./Reducers/Counter";
+
 // import "./styles.css";
 
 export default function App() {
@@ -14,6 +16,7 @@ export default function App() {
       {counter_display}
       <button onClick={() => dispatch(increment())}>+</button>
       <Medicine />
+      <Promise_example />
     </div>
   );
 }

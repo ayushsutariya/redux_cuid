@@ -34,3 +34,11 @@ const instance = axios.create({
       method : 'DELETE',  
   })
   }
+
+  export const putRequest = (path, data) => {
+    return axiosRequest({
+      url: path,
+      method : 'PUT',
+      data : JSON.stringify(data)
+  })
+  }

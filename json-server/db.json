@@ -1,5 +1,20 @@
 {
-  "medicines": [],
+  "medicines": [
+    {
+      "id": 561,
+      "name": "mk1",
+      "price": "621",
+      "quantity": "231",
+      "expiry": "2301"
+    },
+    {
+      "id": 277,
+      "name": "Darshilll",
+      "price": "621",
+      "quantity": "56",
+      "expiry": "2025"
+    }
+  ],
   "doctors": [
     {
       "id": 5,

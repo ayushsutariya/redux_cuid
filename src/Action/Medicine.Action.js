@@ -1,5 +1,5 @@
 import { BASE_URL } from "../baseUrl";
-import { Delete_Medicines, Get_Medicines, Set_Medicines } from "../common/api/medicine.api";
+import { Delete_Medicines, Edit_Medicines, Get_Medicines, Set_Medicines } from "../common/api/medicine.api";
 
 export const MedicineData  = (dispatch) => {
   try {
@@ -90,35 +90,40 @@ export const Add_MedicineData = (data) => (dispatch) => {
 
 export const Edit_MedicineData = (data) => (dispatch) => {
   try {
-    return fetch(BASE_URL + "medicines/" + data.id,{
-      method : 'PUT',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
-    })
-      .then(
-        (response) => {
-          if (response.ok) {
-            return response;
-          } else {
-            var error = new Error(
-              "Error " + response.status + ": " + response.statusText
-            );
-            error.response = response;
-            throw error;
-          }
-        },
-        (error) => {
-          var errmess = new Error(error.message);
-          throw errmess;
-        }
-      )
-      .then((response) => response.json())
-      .then((medicines) =>
-        dispatch({ type: 'EDIT_MEDICINE', payload: medicines })
+    Edit_Medicines(data)
+    .then((data) =>
+        dispatch({ type: 'EDIT_MEDICINE', payload: data.data })
       )
       .catch( error => dispatch(error_medicines(error.message)));
+    // return fetch(BASE_URL + "medicines/" + data.id,{
+    //   method : 'PUT',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: JSON.stringify(data),
+    // })
+    //   .then(
+    //     (response) => {
+    //       if (response.ok) {
+    //         return response;
+    //       } else {
+    //         var error = new Error(
+    //           "Error " + response.status + ": " + response.statusText
+    //         );
+    //         error.response = response;
+    //         throw error;
+    //       }
+    //     },
+    //     (error) => {
+    //       var errmess = new Error(error.message);
+    //       throw errmess;
+    //     }
+    //   )
+    //   .then((response) => response.json())
+    //   .then((medicines) =>
+    //     dispatch({ type: 'EDIT_MEDICINE', payload: medicines })
+    //   )
+    //   .catch( error => dispatch(error_medicines(error.message)));
 } catch (error) {
   dispatch(error_medicines(error.message))
   console.log(error);
