@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
@@ -16,9 +16,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import CreateIcon from "@mui/icons-material/Create";
 import { useDispatch, useSelector } from "react-redux";
 import MedicineData, { Add_MedicineData, Delete_MedicineData, Edit_MedicineData } from "../../Action/Medicine.Action";
+import ThemeContext from "../../Context/ThemeContext";
 // import "./Medicine.style"
 
 export default function Medicine() {
+  const theme = useContext(ThemeContext)
   const [open, setOpen] = React.useState(false);
   const [data, setData] = useState([]);
   const [Update, setUpdate] = useState();
@@ -183,15 +185,18 @@ export default function Medicine() {
   }, []);
 console.log({medicine_display});
   return (
+    
     <div>
+      <button onClick={() => theme.toggleTheme(theme.theme)}>Toggle Theme</button>
       {
         medicine_display.isloading ? 
         <p>Loading ...</p>
  : 
         medicine_display.error !== '' ? 
         <p>{medicine_display.error}</p> :
-        <Box>
-        <Container>
+        <Box >
+        <Container className={`${theme.theme}`}>
+
           <div>
             <center>
               <Button variant="outlined" onClick={() => handleClickOpen()}>
@@ -199,7 +204,7 @@ console.log({medicine_display});
               </Button>
             </center>
             <div style={{ height: 400, width: "100%" }}>
-              <DataGrid
+              <DataGrid 
                 rows={medicine_display.MedicineData}
                 columns={columns}
                 pageSize={5}

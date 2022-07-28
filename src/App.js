@@ -1,7 +1,9 @@
+import { useContext } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment } from "./Action/Counter.Action";
 import Medicine from "./Container/Medicines/Medicines";
 import Promise_example from "./Container/Promise_Example/Promise_example";
+import ThemeContext, { ThemeProvider } from "./Context/ThemeContext";
 import Counter_Reducer from "./Reducers/Counter";
 
 // import "./styles.css";
@@ -11,12 +13,16 @@ export default function App() {
   const counter_display = useSelector((state) => state.counter);
 
   return (
-    <div className="App">
-      <button onClick={() => dispatch(decrement())}>-</button>
-      {counter_display}
-      <button onClick={() => dispatch(increment())}>+</button>
-      <Medicine />
-      <Promise_example />
-    </div>
+    <ThemeProvider>
+      <div className={`App `}>
+        
+        <button onClick={() => dispatch(decrement())}>-</button>
+        {counter_display}
+        <button onClick={() => dispatch(increment())}>+</button>
+        <Medicine />
+        <Promise_example />
+
+      </div>
+    </ThemeProvider>
   );
 }
