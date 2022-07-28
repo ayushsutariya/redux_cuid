@@ -13,6 +13,12 @@
       "price": "621",
       "quantity": "56",
       "expiry": "2025"
+    },
+      {"id": 971,
+      "name": "Demo11",
+      "price": "495",
+      "quantity": "314",
+      "expiry": "2023"
     }
   ],
   "doctors": [

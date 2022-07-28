@@ -95,6 +95,7 @@ export const Edit_MedicineData = (data) => (dispatch) => {
         dispatch({ type: 'EDIT_MEDICINE', payload: data.data })
       )
       .catch( error => dispatch(error_medicines(error.message)));
+    // .then((data) =>  dispatch({ type: 'EDIT_MEDICINE', payload: data.data}))
     // return fetch(BASE_URL + "medicines/" + data.id,{
     //   method : 'PUT',
     //   headers: {

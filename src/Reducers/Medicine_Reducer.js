@@ -51,7 +51,7 @@ export const Medicine_Reducer = (state = init_state , action) => {
                     ...state,
                     isloading : false,
                     MedicineData : state.MedicineData.map((d) => {
-                        if(d.id === action.payload){
+                        if(d.id === action.payload.id){
                         return action.payload
                     } else {
                         return d
