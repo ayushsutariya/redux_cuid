@@ -1,8 +1,8 @@
 import { getRequest, postRequest, deleteRequest, putRequest } from "../request"
 
-export const Get_Medicines = () => {
-    return getRequest("medicines")
-}
+    export const Get_Medicines = () => {
+        return getRequest("medicines")
+    }
 
 export const Set_Medicines = (data) => {
     return postRequest("medicines" , data)

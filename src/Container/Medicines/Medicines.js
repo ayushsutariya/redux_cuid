@@ -158,7 +158,7 @@ export default function Medicine() {
   const handleDelete = () => {
     // let localData = JSON.parse(localStorage.getItem("medicine"));
 
-    // let filterData = localData.filter((v, i) => v.id !== did);
+    // let filterData = localData.filter((v , i) => v.id !== did);
 
     // localStorage.setItem("medicine", JSON.stringify(filterData));
 
@@ -186,7 +186,7 @@ export default function Medicine() {
 console.log({medicine_display});
   return (
     
-    <div>
+    <div >
       <button onClick={() => theme.toggleTheme(theme.theme)}>Toggle Theme</button>
       {
         medicine_display.isloading ? 
@@ -195,7 +195,7 @@ console.log({medicine_display});
         medicine_display.error !== '' ? 
         <p>{medicine_display.error}</p> :
         <Box >
-        <Container className={`${theme.theme}`}>
+        <Container>
 
           <div>
             <center>
